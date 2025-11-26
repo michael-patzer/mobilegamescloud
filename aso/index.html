@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boost your App Store downloads with professional ASO services. Our advanced keyword optimization techniques increase organic visibility and downloads for iOS apps. See real results with up to 357% download growth.">
+    <title>App Store Optimization | Boost Your App's Organic Downloads</title>
+    <style>
+        :root {
+            --primary: #007AFF;
+            --primary-light: rgba(0, 122, 255, 0.8);
+            --secondary: #5856D6;
+            --secondary-light: rgba(88, 86, 214, 0.8);
+            --accent: #34C759;
+            --accent-secondary: #30B350;
+            --text: #1C1C1E;
+            --background: #FFFFFF;
+            --gray: #8E8E93;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, 
+                var(--primary-light),
+                var(--secondary-light));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .results {
+            padding: 80px 0;
+            background: #F2F2F7;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin: 0 auto 15px;
+            background: #F5F5F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .features {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            color: white;
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .results-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.02);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-message h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Boost Your App Store Downloads with Advanced ASO</h1>
+            <p class="hero-subtitle">Transform how users discover your app through sophisticated keyword optimization to dramatically increase your app's organic visibility and downloads</p>
+        </div>
+    </header>
+
+    <section class="results">
+        <div class="container">
+            <h2>Proven Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="app-icon">
+                        <img src="images/navigation.jpg" alt="Navigation App Icon">
+                    </div>
+                    <div class="result-number">357%</div>
+                    <p>Download Increase for<br>Navigation App</p>
+                </div>
+                <div class="result-card">
+                    <div class="app-icon">
+                        <img src="images/outdoor.jpg" alt="Outdoor App Icon">
+                    </div>
+                    <div class="result-number">21%</div>
+                    <p>Increase in #1 Ranked Terms<br>for Outdoor App</p>
+                </div>
+                <div class="result-card">
+                    <div class="app-icon">
+                        <img src="images/color.jpg" alt="Color Tool Icon">
+                    </div>
+                    <div class="result-number">+220</div>
+                    <p>New Ranked Search Phrases<br>for Color Tool</p>
+                </div>
+                <div class="result-card">
+                    <div class="app-icon">
+                        <img src="images/solitaire.jpg" alt="Solitaire Game Icon">
+                    </div>
+                    <div class="result-number">+172</div>
+                    <p>Additional Ranked Search Phrases<br>for Solitaire Game</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose Our ASO Service?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Advanced Algorithm</h3>
+                    <p>Sophisticated phrase permutation algorithms that work within Apple's strict 100-character keyword field limit while maximizing phrase coverage.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Natural Language</h3>
+                    <p>Our algorithms analyze and match how real users describe and search for apps like yours, going beyond simple keyword matching.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Sustainable Growth</h3>
+                    <p>These aren't temporary gains. Once implemented, these optimizations continue driving organic growth month after month.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Category Leaders Trust Us</h3>
+                    <p>Even mature, category-leading apps see dramatic improvements in rankings and downloads after optimization.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Immediate Impact</h3>
+                    <p>See immediate indexing for new terms while building sustainable, long-term organic growth.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multi-Language Support</h3>
+                    <p>Optimize across multiple App Store localizations with intelligent handling of diacritics and language variations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Real Client Success</h2>
+            <div class="testimonial-card">
+                <p>"Even during the post-holiday decline, our navigation app saw daily downloads increase from 487 to 2,225 - a 357% improvement. The best part? These weren't temporary gains. The optimizations continue driving organic growth month after month."</p>
+            </div>
+            <div class="testimonial-card" style="margin-top: 20px;">
+                <p>"What impressed us most was how the optimizations targeted exactly how our users actually search. We went from ranking for 34 search terms to 254 - a 647% increase in searchable phrases that bring in real users."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Ready to Unlock Your App's Full Potential?</h2>
+            <p style="margin-bottom: 30px;">Discover how many additional relevant search terms your app could be ranking for. We're currently accepting a limited number of optimization projects.</p>
+        </div>
+    </section>
+
+
+    <script>
+        // Smooth scroll for anchor links
+        /*
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        */
+
+    </script>
+</body>
+</html>
